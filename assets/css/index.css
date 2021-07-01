@@ -29,7 +29,7 @@ html, body {
 
 .rect {
   position: relative;
-  height: 915.5px;
+  height: 1200px;
   width: 3313px;
 }
 
@@ -172,14 +172,14 @@ html, body {
 }
 
 .test {
-  height: 1000px;
+  height: 1400px;
   background: red;
   position: relative;
   z-index: 20;
   display: flex;
   flex-direction: column;
 }
-.test .card {
+.test .movie__card {
   margin: 1rem;
   width: 320px;
   height: 150px;
@@ -190,7 +190,7 @@ html, body {
   background: white;
 }
 @media screen and (min-width: 600px) {
-  .test .card {
+  .test .movie__card {
     width: 600px;
   }
 }
@@ -198,6 +198,18 @@ html, body {
   width: 100px;
   height: 60px;
   margin-top: -20px;
+}
+
+.load__button {
+  width: 300px;
+  height: 30px;
+  position: relative;
+  z-index: 1000;
+  background: yellow;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=index.css.map */

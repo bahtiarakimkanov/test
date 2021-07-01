@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/css/header.css">
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/css/index.css">
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/css/footer.css">
-
 </head>
 <body>
-    <?php get_header()?>
 
+    <?php get_header()?>
+    
 
 <div class="wrapper">
     <div class="content">
@@ -50,34 +50,22 @@
         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/header/rect2.png" alt="" class="after__intro">
         
         <div class="test">
-       
-        <?php $count_posts = wp_count_posts(); ?>
-            <div id="post-count"><?php echo $count_posts->publish; ?></div>
-            <div class="posts">
-                <?php
-                    query_posts(array(
-                        'posts_per_page' => 2
-                    ));
-                    if( have_posts() ){
-                        while( have_posts() ){
-                            the_post();
-                            ?>
-                            <h3 class="title"><?php the_title()?></h3>
-                        <?php
-                        }
-                        wp_reset_query();
-                    }
-        ?>
-        </div>
-            <a href="#" id="load-post" title="">Показать еще</a>
+            
+
+                    <script>
+                		var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
+                		var true_posts = '<?php echo serialize($wp_query->query_vars); ?>';
+                		var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 0; ?>;
+                		var max_pages = '<?php echo $wp_query->max_num_pages; ?>';
+                	</script>	
+                <div id="true_loadmore" class="load__button">Загрузить посты про фильмы</div>
+
         </div>
     </div>
 
     
     
 </div>
-
-
 <?php get_footer()?>
 
 

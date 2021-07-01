@@ -1,20 +1,34 @@
 <?php
 
 add_action(	'after_setup_theme', 'testMenuReg');
-function ziscod_scripts_styles() {
-	$url = 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js';
-	$test_url = @fopen($url,'r');
-	if( $test_url !== false ) {
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', $url);
-		wp_enqueue_script('jquery');
-	} else {
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', get_template_directory_uri().'/js/jquery-1.11.2.min.js',  __FILE__, false, '1.11.2', true);
-		wp_enqueue_script('jquery');
-	}
+function true_load_posts(){
+	$args = unserialize(stripslashes($_POST['query']));
+	$args['post_type'] = 'movies';
+	$args['paged'] = $_POST['page'] + 1;
+	
+	$q = new WP_Query($args);
+	if( $q->have_posts() ):
+		while($q->have_posts()): $q->the_post();
+			?>
+				<div class="movie__card">
+					<h3 class="movie__title">Название фильма: <?php the_title()?></h3>
+					<p class="descript">Жанр: <?php the_field('genre')?></p>
+					<p class="descript">Год выпуска: <?php the_field('year')?></p>
+					<p class="descript">Режиссер: <?php the_field('author')?></p>
+				</div>
+			
+			<?php
+		endwhile;
+	endif;
+	wp_reset_postdata();
+	die();
+
 }
-add_action( 'wp_enqueue_scripts', 'ziscod_scripts_styles' );
+ 
+ 
+add_action('wp_ajax_loadmore', 'true_load_posts');
+add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
+
 
 function testMenuReg() {
     register_nav_menu( 'top', 'Header menu' );
