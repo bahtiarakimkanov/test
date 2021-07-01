@@ -1,0 +1,170 @@
+@import _vars.sass
+html,body
+    font-family: 'Montserrat', sans-serif 
+    margin-top: 0 !important
+
+    
+.wrapper
+    z-index: 10
+    position: relative
+    background: rgba(242, 247, 255, 0.7)
+    padding-top: 72px
+    overflow: hidden
+    +lm(1100px)
+        padding-top: 0
+
+.content
+    margin: 0 auto
+    max-width: 320px
+    position: relative
+    +lm(1100px)
+        max-width: 1366px
+
+
+.rect
+    position: relative
+    height: 915.5px
+    width: 3313px
+.intro
+    width: 100%
+    margin: 3rem 0
+    height: 100vh
+    position: relative
+    +lm(1100px)
+        display: flex
+        align-items: center
+        width: 1075px
+        height: 866px
+        margin: 0  auto
+        justify-content: space-between
+    .img__cont
+        width: 310px
+        height: 640px
+        @include center
+        margin-top: 2rem
+        +lm(1100px)
+            width: 350px
+            height: 640px
+    .phone__img
+        width: 310px
+        height: 640px
+        transform: translateX(-20px)
+        position: relative
+        z-index: 100
+        +lm(1100px)
+            width: 320px
+            height: 640px
+            transform: translateX(30px)
+    .text__cont
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        +lm(1100px)
+            width: 730px
+            height: 276px
+            margin-top: -160px
+    .top__title
+        font-size: 24px
+        font-weight: 800
+        color: #18191F
+        +lm(1100px)
+            font-size: 72px
+            margin-bottom: 40px
+    .main__button
+        height: 48px
+        width: 154px
+        border-radius: 6px
+        background: #8C30F5
+        @include center
+        font-weight: 500
+        font-size: 16px
+        color: white
+        transition: all 0.5s linear
+        &:hover
+            transform: scale(1.1)
+
+
+    .circle__violet
+        height: 406px
+        width: 406px
+        border-radius: 50%
+        position: absolute
+        top: -50px 
+        right: -250px
+        background: #8C30F5
+        opacity: 0.3
+        filter: blur(70px)
+    .circle__blue
+        height: 168px
+        width: 168px
+        border-radius: 50%
+        position: absolute
+        opacity: 0.6
+        background: #2EC5CE
+        filter: blur(70px)
+        bottom: 200px
+        right: 250px
+
+
+
+.after__intro
+    position: absolute
+    z-index: 10
+    margin: auto
+    position: absolute
+    left: 0
+    bottom: 0
+    right: 0
+    transform: translateY(-37rem)
+    height: 915.5px
+    width: 3313px
+
+
+
+.shapes
+    display: flex
+    justify-content: space-between
+    z-index: 30
+    position: relative
+    transform: translateY(-16rem)
+    .left
+        transform: translateY(10rem)
+    .right  
+        transform: translateY(1.3rem)
+        +lm(1366px)
+            transform: translateY(-0.8rem)
+.test
+    height: 1000px
+    background: red
+    position: relative
+    z-index: 20
+    display: flex
+    flex-direction: column
+    .card
+        margin: 1rem
+        width: 320px
+        height: 150px
+        border-radius: 20px
+        display: flex
+        flex-direction: column
+        align-items: center
+        background: white
+        +lm(600px)
+            width: 600px
+    .pre__info
+    .helo
+        width: 100px
+        height: 60px
+        margin-top: -20px
+        
+
+
+
+
+
+
+
+
+
+
+
